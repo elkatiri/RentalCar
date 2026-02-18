@@ -1,0 +1,369 @@
+:root {
+  --bg: #0f172a;
+  --surface: #111827;
+  --card: #1f2937;
+  --border: rgba(255, 255, 255, 0.06);
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --accent: #22d3ee;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --radius: 20px;
+}
+
+.car-listing {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid var(--primary);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* HEADER */
+
+.listing-header {
+  position: relative;
+  padding: 120px 20px 100px;
+  background: radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.25), transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.2), transparent 40%),
+              linear-gradient(135deg, #0f172a, #111827);
+  text-align: center;
+  overflow: hidden;
+}
+
+.listing-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(15,23,42,0.9));
+}
+
+.listing-header-content {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+.listing-header h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.header-gradient-text {
+  display: block;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background-clip:text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.listing-header p {
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+
+/* STATS */
+
+.header-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+}
+
+/* LISTING CONTAINER */
+
+.listing-container {
+  padding: 60px 40px;
+  background: var(--bg);
+}
+
+/* MODAL */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-dialog {
+  background: var(--card);
+  width: 100%;
+  max-width: 560px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 26px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.modal-close:hover {
+  color: var(--danger);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 26px;
+}
+
+/* CAR PREVIEW */
+
+.booking-car-preview {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 26px;
+  align-items: center;
+}
+
+.booking-car-preview img {
+  width: 110px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.booking-car-details h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.booking-car-details p {
+  margin: 4px 0 0;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* FORM */
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  color: var(--text);
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* SUMMARY */
+
+.booking-summary {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.booking-summary h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.summary-item.total {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* FOOTER BUTTONS */
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-cancel,
+.btn-confirm {
+  padding: 10px 18px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-cancel {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-muted);
+}
+
+.btn-cancel:hover {
+  background: rgba(148, 163, 184, 0.25);
+}
+
+.btn-confirm {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: white;
+  box-shadow: 0 12px 25px rgba(99, 102, 241, 0.35);
+}
+
+.btn-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(99, 102, 241, 0.5);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .listing-header h1 {
+    font-size: 32px;
+  }
+
+  .listing-container {
+    padding: 40px 20px;
+  }
+
+  .modal-dialog {
+    max-width: 100%;
+  }
+
+  .booking-car-preview {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

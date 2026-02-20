@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/RentelCar/static/css/main.53a5eb93.css",
+    "main.js": "/RentelCar/static/js/main.16aaa4c7.js",
+    "static/media/logo.png": "/RentelCar/static/media/logo.1f36d1f6c0570096423d.png",
+    "static/media/call-action.png": "/RentelCar/static/media/call-action.af2d04a36efdd268aa7d.png",
+    "static/media/main_car.webp": "/RentelCar/static/media/main_car.b16e247e519b2cf2b040.webp",
+    "index.html": "/RentelCar/index.html",
+    "main.53a5eb93.css.map": "/RentelCar/static/css/main.53a5eb93.css.map",
+    "main.16aaa4c7.js.map": "/RentelCar/static/js/main.16aaa4c7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.53a5eb93.css",
+    "static/js/main.16aaa4c7.js"
+  ]
+}

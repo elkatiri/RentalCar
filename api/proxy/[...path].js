@@ -35,6 +35,10 @@ export default async function handler(req, res) {
 
     // Forward headers (excluding host related headers that may cause issues)
     const forwardedHeaders = { ...req.headers };
+    // Ensure CORS headers are also sent to the backend (some APIs expect them)
+    forwardedHeaders['access-control-allow-origin'] = '*';
+    forwardedHeaders['access-control-allow-methods'] = 'GET, POST, PUT, DELETE, OPTIONS';
+    forwardedHeaders['access-control-allow-headers'] = '*';
     delete forwardedHeaders['host'];
     delete forwardedHeaders['content-length'];
 

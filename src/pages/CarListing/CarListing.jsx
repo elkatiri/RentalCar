@@ -15,7 +15,7 @@ const CarListing = () => {
   const [bookingData, setBookingData] = useState({
     start_date: '',
     end_date: '',
-    location: '', 
+    location: '',
   });
   const [bookingModal, setBookingModal] = useState(false);
 
@@ -70,7 +70,7 @@ const CarListing = () => {
     }
 
     try {
-      const response = await axios.post(
+      await axios.post(
         `${API}/reservations`,
         {
           vehicle_id: selectedCar.id,
@@ -113,7 +113,7 @@ const CarListing = () => {
         <div className="listing-header-content">
           <div className="header-badge">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
             </svg>
             <span>Premium Fleet</span>
           </div>
@@ -122,7 +122,7 @@ const CarListing = () => {
             <span className="header-gradient-text">Luxury Meets Performance</span>
           </h1>
           <p>Handpicked premium vehicles designed for unforgettable journeys. From sleek sedans to powerful SUVs.</p>
-          
+
           <div className="header-stats">
             <div className="stat-item">
               <span className="stat-number">50+</span>
@@ -143,7 +143,7 @@ const CarListing = () => {
       </div>
 
       <div className="listing-container">
-        <Cars 
+        <Cars
           vehicles={vehicles}
           loading={loading}
           onBookClick={handleBookingClick}
@@ -168,8 +168,8 @@ const CarListing = () => {
                     selectedCar.image && selectedCar.image.startsWith('http')
                       ? selectedCar.image
                       : selectedCar.image
-                      ? `${STORAGE_URL}/${selectedCar.image}`
-                      : 'https://via.placeholder.com/300x200'
+                        ? `${STORAGE_URL}/${selectedCar.image}`
+                        : 'https://via.placeholder.com/300x200'
                   }
                   alt={`${selectedCar.brand} ${selectedCar.model}`}
                 />

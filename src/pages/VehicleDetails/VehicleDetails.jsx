@@ -101,7 +101,7 @@ const VehicleDetails = () => {
     }
 
     try {
-      const response = await axios.post(
+      await axios.post(
         `${API}/reservations`,
         {
           vehicle_id: vehicle.id,
@@ -167,8 +167,8 @@ const VehicleDetails = () => {
                 vehicle.image && vehicle.image.startsWith('http')
                   ? vehicle.image
                   : vehicle.image
-                  ? `${STORAGE_URL}/${vehicle.image}`
-                  : 'https://via.placeholder.com/600x400'
+                    ? `${STORAGE_URL}/${vehicle.image}`
+                    : 'https://via.placeholder.com/600x400'
               }
               alt={`${vehicle.brand} ${vehicle.model}`}
               className="details-main-image"
@@ -242,8 +242,8 @@ const VehicleDetails = () => {
                     vehicle.image && vehicle.image.startsWith('http')
                       ? vehicle.image
                       : vehicle.image
-                      ? `${STORAGE_URL}/${vehicle.image}`
-                      : 'https://via.placeholder.com/300x200'
+                        ? `${STORAGE_URL}/${vehicle.image}`
+                        : 'https://via.placeholder.com/300x200'
                   }
                   alt={`${vehicle.brand} ${vehicle.model}`}
                 />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Lock, User, Eye, EyeOff, ArrowRight } from 'lucide-react';
+import { Mail, User, Eye, EyeOff, ArrowRight } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { API } from '../../config/api';
@@ -33,7 +33,7 @@ export default function Signup() {
 
     try {
       const response = await axios.post(`${API}/register`, formData);
-      
+
       if (response.data.token && response.data.user) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -48,7 +48,7 @@ export default function Signup() {
         }, 1500);
       }
     } catch (err) {
-      const errMsg = err.response?.data?.errors 
+      const errMsg = err.response?.data?.errors
         ? Object.values(err.response.data.errors).flat().join(', ')
         : err.response?.data?.message || 'Signup failed. Please try again.';
       setError(errMsg);
@@ -130,7 +130,7 @@ export default function Signup() {
             <div className="form-group">
               <label className='labelhead'>Confirm Password</label>
               <div className="input-wrapper">
-                
+
                 <input
                   type={showConfirm ? 'text' : 'password'}
                   name="password_confirmation"

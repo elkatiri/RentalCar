@@ -23,6 +23,7 @@ const BookingList = () => {
       return;
     }
     fetchBookings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, filterStatus]);
 
   const fetchBookings = async () => {

@@ -10,12 +10,12 @@ import SettingsPage from './Settings';
 import './Dashboard.css';
 
 const navItems = [
-  { id: 'overview', label: 'Overview', icon: <Home size={16}/> },
-  { id: 'analytics', label: 'Analytics', icon: <BarChart2 size={16}/> },
-  { id: 'users', label: 'Users', icon: <Users size={16}/> },
-  { id: 'vehicles', label: 'Vehicles', icon: <Truck size={16}/> },
-  { id: 'reservations', label: 'Reservations', icon: <Calendar size={16}/> },
-  { id: 'settings', label: 'Settings', icon: <Settings size={16}/> },
+  { id: 'overview', label: 'Overview', icon: <Home size={16} /> },
+  { id: 'analytics', label: 'Analytics', icon: <BarChart2 size={16} /> },
+  { id: 'users', label: 'Users', icon: <Users size={16} /> },
+  { id: 'vehicles', label: 'Vehicles', icon: <Truck size={16} /> },
+  { id: 'reservations', label: 'Reservations', icon: <Calendar size={16} /> },
+  { id: 'settings', label: 'Settings', icon: <Settings size={16} /> },
 ];
 
 export default function Dashboard() {
@@ -29,6 +29,7 @@ export default function Dashboard() {
     if (!user || user.role !== 'admin') {
       navigate('/');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, navigate]);
 
   const handleLogout = () => {
@@ -38,7 +39,7 @@ export default function Dashboard() {
   };
 
   const renderContent = () => {
-    switch(active) {
+    switch (active) {
       case 'analytics': return <Analytics />;
       case 'users': return <UsersPage />;
       case 'vehicles': return <Vehicles />;
@@ -76,14 +77,14 @@ export default function Dashboard() {
           <button className="menu-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
             {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-          <h1 className="page-title">{navItems.find(n=>n.id===active)?.label}</h1>
+          <h1 className="page-title">{navItems.find(n => n.id === active)?.label}</h1>
           <div className="profile">
-          <div className="avatar">{user.name.split(' ').map(n => n[0]).join('')}</div>
-          <div className="meta">
-            <div className="name">{user.name}</div>
-            <div className="role">{user.role}</div>
+            <div className="avatar">{user.name.split(' ').map(n => n[0]).join('')}</div>
+            <div className="meta">
+              <div className="name">{user.name}</div>
+              <div className="role">{user.role}</div>
+            </div>
           </div>
-        </div>
         </header>
         <section className="content">
           {renderContent()}

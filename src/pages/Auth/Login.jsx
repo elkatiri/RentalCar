@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react';
+import { Mail, Eye, EyeOff, ArrowRight } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { API } from '../../config/api';
@@ -26,7 +26,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(`${API}/login`, formData);
-      
+
       if (response.data.token && response.data.user) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));

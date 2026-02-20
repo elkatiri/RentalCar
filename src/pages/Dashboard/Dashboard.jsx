@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Home, BarChart2, Users, Settings, Truck, Calendar, LogOut, Menu, X } from 'lucide-react';
 import Overview from './Overview';
@@ -22,14 +22,16 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [active, setActive] = useState('overview');
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const user = JSON.parse(localStorage.getItem('user')) || { name: 'Admin', role: 'admin' };
+
+  const user = useMemo(() => {
+    return JSON.parse(localStorage.getItem('user')) || { name: 'Admin', role: 'admin' };
+  }, []);
 
   // Check if user is admin
   React.useEffect(() => {
     if (!user || user.role !== 'admin') {
       navigate('/');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, navigate]);
 
   const handleLogout = () => {
